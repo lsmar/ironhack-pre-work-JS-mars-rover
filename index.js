@@ -33,6 +33,8 @@ let roversGlobal = [roverLsm0, roverLsm1, roverLsm2, roverLsm3, roverLsm4];
 const obstacles = [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8]];
 const possibleDirections = ["N", "E", "S", "W"];
 const forwardArrays = [[0, -1], [1, 0], [0, 1], [-1, 0]];
+const mapXSize = 100;
+const mapYSize = 100;
 
 // ======================
 function turnLeft(rover) {
@@ -60,8 +62,8 @@ function moveForward(rover) {
     return console.log("Opsss there is another rover");
   }
   rover.travelLog.push({ x: rover.x, y: rover.y });
-  rover.x = xFinalPos > 9 ? 9 : xFinalPos < 0 ? 0 : xFinalPos;
-  rover.y = yFinalPos > 9 ? 9 : yFinalPos < 0 ? 0 : yFinalPos;
+  rover.x = xFinalPos > mapXSize - 1 ? mapXSize - 1 : xFinalPos < 0 ? 0 : xFinalPos;
+  rover.y = yFinalPos > mapYSize ? mapYSize : yFinalPos < 0 ? 0 : yFinalPos;
 }
 
 function moveBackward(rover) {
@@ -123,7 +125,10 @@ function thereIsAnotherRover(roverFutPosition, rovers) {
   );
 }
 
-executeCommands("rrFflfrffffffflf", roversGlobal[0]);
+executeCommands(
+  "rrFflfrffffffflfrflfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  roversGlobal[0]
+);
 console.log("Rover 0", roversGlobal[0].travelLog);
 executeCommands("rrFflfrffffffflf", roversGlobal[1]);
 console.log("Rover 1", roversGlobal[1].travelLog);
