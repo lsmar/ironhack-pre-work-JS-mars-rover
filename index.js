@@ -1,5 +1,4 @@
-// Rover Object Goes Here
-// ======================
+// Apenas um rover
 let roverLsm = {
   direction: "N",
   x: 0,
